@@ -1,0 +1,8 @@
+ALl thanks to Tim Kolberger for the idea and initial implementation.
+
+
+https://kolberger.eu/blog/tutorial-reduce-ci-time-with-docker-builder-pattern/
+
+
+Tim Kolberger
+https://kolberger.eu

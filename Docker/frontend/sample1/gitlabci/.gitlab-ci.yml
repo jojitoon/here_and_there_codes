@@ -1,0 +1,32 @@
+# .gitlab-ci.yml
+variables:
+  FRONTEND_IMAGE_NAME: $CI_REGISTRY_IMAGE/frontend
+  FRONTEND_IMAGE_TAG: $CI_COMMIT_REF_SLUG
+  CI_REGISTRY_PASSWORD: $CI_JOB_TOKEN
+  CI_REGISTRY_USER: gitlab-ci-token
+
+stages:
+  - build
+  - deploy
+
+build:frontend:
+  stage: build
+  image: docker:git
+  services:
+    - docker:dind
+  script:
+    - .gitlab-ci/build-frontend.sh
+
+deploy:production:
+  stage: deploy
+  when: manual
+  variables:
+    BASE_PATH: /var/www/$CI_PROJECT_PATH_SLUG
+    DOCKER_COMPOSE_FILE: docker-compose.production.yml
+  script:
+    - .gitlab-ci/deploy.sh
+  environment:
+    name: <your-environment-name>
+    url: <your-environment-url>
+  tags:
+    - production # your shell runner

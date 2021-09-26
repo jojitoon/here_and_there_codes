@@ -1,0 +1,10 @@
+# docker-compose.production.yml
+
+version: '3'
+
+services:
+  frontend:
+    restart: always
+    image: '$FRONTEND_IMAGE'
+    env_file:
+      - .env

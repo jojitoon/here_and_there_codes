@@ -1,0 +1,17 @@
+# install docker
+curl -sSL https://get.docker.com/ | sh
+# and test it
+docker run hello-world
+
+mkdir -p .docker/frontend
+touch .docker/frontend/Dockerfile
+
+You can manually start you application like this
+# run once
+echo "FRONTEND_IMAGE=<your-frontend-image>" >> .env
+
+# start all containers
+docker-compose -f docker-compose.production.yml up -d
+# check status
+docker-compose -f docker-compose.production.yml ps
+

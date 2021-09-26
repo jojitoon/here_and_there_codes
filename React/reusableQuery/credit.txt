@@ -1,0 +1,8 @@
+ALl thanks to Tim Kolberger for the idea and initial implementation.
+
+
+https://kolberger.eu/blog/creating-a-reusable-react-query-component-for-your-rest-api/
+
+
+Tim Kolberger
+https://kolberger.eu
